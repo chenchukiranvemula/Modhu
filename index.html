@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Special Girl ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background:#160b17;
+  color:white;
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+}
+
+#opening{
+  position:fixed;
+  inset:0;
+  z-index:10;
+  background:linear-gradient(145deg,#210d24,#501b39,#a83260);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+  transition:1s;
+}
+
+.open-content h1{
+  font-family:'Great Vibes',cursive;
+  font-size:clamp(48px,12vw,85px);
+  color:#ffd5e5;
+  margin:20px 0;
+}
+
+.open-content p{color:#fbdce8;line-height:2}
+
+button{
+  background:linear-gradient(90deg,#ff5d91,#ff9dbb);
+  border:0;
+  padding:14px 30px;
+  border-radius:30px;
+  color:white;
+  font-size:15px;
+  font-weight:600;
+  cursor:pointer;
+  margin-top:25px;
+  box-shadow:0 5px 25px #ff5d9170;
+}
+
+#main{display:none}
+
+section{
+  padding:75px 20px;
+  text-align:center;
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:radial-gradient(circle,#58223e,#160b17 70%);
+}
+
+.script{
+  font-family:'Great Vibes',cursive;
+  color:#ff9cbe;
+  font-size:clamp(48px,12vw,85px);
+}
+
+.hero p{margin-top:15px;color:#f5d5e3}
+
+.heart{
+  font-size:60px;
+  animation:beat 1.2s infinite;
+}
+
+@keyframes beat{
+  50%{transform:scale(1.25)}
+}
+
+h2{
+  font-family:'Great Vibes',cursive;
+  font-size:48px;
+  color:#ff9cbe;
+  margin-bottom:25px;
+}
+
+.card{
+  background:#ffffff0c;
+  border:1px solid #ffffff20;
+  border-radius:22px;
+  padding:25px;
+  max-width:600px;
+  margin:20px auto;
+  backdrop-filter:blur(12px);
+  line-height:1.9;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  max-width:650px;
+  margin:auto;
+}
+
+.gallery img{
+  width:100%;
+  height:210px;
+  object-fit:cover;
+  border-radius:17px;
+  border:2px solid #ff9cbe55;
+}
+
+.gallery img:last-child{
+  grid-column:span 2;
+}
+
+.reason{
+  max-width:500px;
+  margin:12px auto;
+  padding:15px;
+  border-radius:15px;
+  background:#ff8db51c;
+  border:1px solid #ff9cbe40;
+}
+
+.letter{
+  display:none;
+  text-align:left;
+  white-space:pre-line;
+  color:#ffe2ed;
+}
+
+.cake{
+  font-size:95px;
+  margin:20px;
+  animation:beat 2s infinite;
+}
+
+footer{
+  padding:40px 15px;
+  text-align:center;
+  color:#ffb5cf;
+}
+
+.float{
+  position:fixed;
+  bottom:-30px;
+  pointer-events:none;
+  animation:floatUp 7s linear forwards;
+  z-index:5;
+}
+
+@keyframes floatUp{
+  to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+
+@media(max-width:450px){
+  .gallery img{height:160px}
+}
+</style>
+</head>
+
+<body>
+
+<div id="opening">
+  <div class="open-content">
+    <div style="font-size:55px">💌</div>
+    <h1>For You, My Love</h1>
+    <p>I have something special prepared for you...</p>
+    <p>Are you ready for a little surprise?</p>
+    <button onclick="start()">Open Your Surprise ❤️</button>
+  </div>
+</div>
+
+<div id="main">
+
+<section class="hero">
+  <div class="heart">❤️</div>
+  <p>A SPECIAL DAY FOR SOMEONE SPECIAL</p>
+  <h1 class="script"> Advance Happy Birthday!</h1>
+  <h2 style="font-size:55px">My Beautiful Girl ✨</h2>
+  <p>November 10 — A day the world became more beautiful.</p>
+  <button onclick="document.getElementById('memories').scrollIntoView({behavior:'smooth'})">
+    Begin Our Story ↓
+  </button>
+</section>
+
+<section id="memories">
+  <h2> ur Beautiful Memories 📸</h2>
+  <p style="margin-bottom:25px;color:#eab8cc">
+    Every picture has a memory, and every memory has you.
+  </p>
+
+  <div class="gallery">
+    <!-- Replace these with your photos -->
+    <img src="photo1.jpg" alt="Our memory 1">
+    <img src="photo2.jpg" alt="Our memory 2">
+    <img src="photo3.jpg" alt="Our memory 3">
+  </div>
+</section>
+
+<section>
+  <h2>A Little Letter For You 💌</h2>
+  <div class="card">
+    <p>There is something I want you to know...</p>
+    <button onclick="showLetter()">Read My Heart ❤️</button>
+    <div class="letter" id="letter">
+
+My Love ❤️
+
+Advance Happy Birthday to the most special person in my life.
+
+I don't know how to explain how much you mean to me.
+But I want you to know that your smile makes my day,
+your happiness matters to me, and your presence makes
+even ordinary moments feel magical.
+
+I may not be perfect, but my feelings for you are real.
+
+Thank you for being part of my life.
+I hope your birthday is filled with happiness,
+beautiful memories and everything your heart wishes for.
+
+Keep smiling, my princess.
+
+Forever sending you love. ❤️
+
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Why You're Special ❤️</h2>
+  <div class="reason">🌸 Your beautiful smile</div>
+  <div class="reason">💗 The happiness you bring me</div>
+  <div class="reason">✨ The way you take care about me </div>
+  <div class="reason">🫶 The memories we create together</div>
+  <div class="reason">❤️ Simply because you're YOU</div>
+</section>
+
+<section>
+  <h2>Make A Wish, Birthday Girl 🎂</h2>
+  <div class="cake">🎂</div>
+  <p>Close your eyes, make a wish and smile!</p>
+  <button onclick="celebrate()">Celebrate Your Day 🎉</button>
+  <p id="celebration" style="margin-top:25px;color:#ffabc9"></p>
+</section>
+
+<section>
+  <h2>One Last Thing... 💞</h2>
+  <div class="card">
+    <p>Out of all the beautiful things in this world,</p>
+    <h2 style="margin:15px">You're My Favourite. ❤️</h2>
+    <p> Advance Happy Birthday, My Love!</p>
+    <p style="margin-top:20px;font-size:25px">I LOVE YOU ♾️</p>
+  </div>
+</section>
+
+<footer>
+  Made with endless love ❤️<br>
+  Especially for you — November 10
+</footer>
+
+</div>
+
+<script>
+function start(){
+  document.getElementById('opening').style.opacity='0';
+
+  setTimeout(()=>{
+    document.getElementById('opening').style.display='none';
+    document.getElementById('main').style.display='block';
+    window.scrollTo(0,0);
+  },1000);
+}
+
+function showLetter(){
+  const letter=document.getElementById('letter');
+  letter.style.display='block';
+}
+
+function celebrate(){
+  document.getElementById('celebration').innerHTML=
+  '🎉 Advance HAPPY BIRTHDAY, MY PRINCESS! ❤️🎉';
+
+  for(let i=0;i<35;i++){
+    setTimeout(createHeart,i*80);
+  }
+}
+
+function createHeart(){
+  const h=document.createElement('div');
+  h.className='float';
+  h.innerHTML=['❤️','💕','💗','🌸','✨'][Math.floor(Math.random()*5)];
+  h.style.left=Math.random()*100+'vw';
+  h.style.fontSize=(18+Math.random()*22)+'px';
+  h.style.animationDuration=(4+Math.random()*4)+'s';
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8500);
+}
+
+setInterval(createHeart,1100);
+</script>
+
+</body>
+  </html>
+    
