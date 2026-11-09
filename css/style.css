@@ -567,3 +567,128 @@ h2 {
 .gallery-arrow:hover {
   background: #ff75a855;
    }
+
+/* 100 Interactive Reason Bubbles */
+
+.reasons-container {
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  padding: 30px 15px;
+  text-align: center;
+}
+
+.reasons-subtitle {
+  color: #f5c9e5;
+  margin: 12px 0 25px;
+}
+
+.reason-bubbles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  padding: 15px 5px;
+}
+
+.reason-bubble {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.65);
+  background: radial-gradient(
+    circle at 30% 25%,
+    rgba(255,255,255,.9),
+    rgba(255,145,205,.45) 45%,
+    rgba(155,90,220,.35)
+  );
+  box-shadow:
+    0 0 18px rgba(255,130,210,.35),
+    inset 0 0 15px rgba(255,255,255,.4);
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  animation: bubbleFloat 3s ease-in-out infinite alternate;
+  transition: transform .3s, opacity .3s;
+}
+
+.reason-bubble:nth-child(even) {
+  animation-delay: .8s;
+}
+
+.reason-bubble:hover {
+  transform: scale(1.15);
+}
+
+.reason-bubble.popped {
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes bubbleFloat {
+  from { transform: translateY(0); }
+  to { transform: translateY(-12px); }
+}
+
+/* Reason popup */
+
+.reason-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(8, 5, 25, .8);
+  backdrop-filter: blur(10px);
+}
+
+.reason-popup.active {
+  display: flex;
+}
+
+.reason-popup-content {
+  position: relative;
+  width: min(90%, 420px);
+  padding: 40px 25px;
+  border: 1px solid rgba(255,255,255,.35);
+  border-radius: 25px;
+  background: linear-gradient(145deg, #43204f, #211638);
+  box-shadow: 0 0 40px rgba(255,100,200,.3);
+  animation: popupAppear .4s ease;
+}
+
+.reason-popup-content span {
+  color: #ffc4e8;
+}
+
+.reason-popup-content p {
+  color: white;
+  font-size: 21px;
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+.close-reason {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@keyframes popupAppear {
+  from { opacity: 0; transform: scale(.7); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+#bubbleProgress {
+  color: #ffd5ed;
+  margin: 20px 0;
+}
