@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080817">
+  <title>Our Little Universe ❤️</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+
+  <!-- Background -->
+  <div id="stars"></div>
+  <div class="ambient-glow"></div>
+
+  <!-- Music -->
+  <audio id="birthdayMusic" loop>
+    <source src="assets/music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- INTRO -->
+  <section id="intro" class="screen active">
+    <div class="moon"></div>
+
+    <div class="intro-content">
+      <p class="eyebrow">A LITTLE THING MADE FOR YOU</p>
+
+      <h1>Somewhere between<br>
+        the stars and the sea...
+      </h1>
+
+      <p class="intro-subtitle">
+        There is a universe that exists only because of you.
+      </p>
+
+      <button class="primary-btn" id="startJourney">
+        Enter Our Universe ✨
+      </button>
+    </div>
+
+    <div class="ocean"></div>
+  </section>
+
+  <!-- CAKE -->
+  <section id="cake" class="screen">
+    <div class="section-content">
+      <p class="eyebrow">TODAY IS ALL ABOUT YOU</p>
+      <h2>A little wish for my favourite person</h2>
+
+      <div class="cake-container" id="cakeTap">
+        <div class="cake-candle">
+          <span class="flame"></span>
+        </div>
+        <div class="cake-top"></div>
+        <div class="cake-middle"></div>
+        <div class="cake-bottom"></div>
+        <div class="cake-plate"></div>
+      </div>
+
+      <p class="tap-hint">Tap the cake to make a wish 🕯️</p>
+      <p id="cakeMessage"></p>
+    </div>
+  </section>
+
+  <!-- BIRTHDAY MESSAGE -->
+  <section id="welcome" class="screen">
+    <div class="section-content">
+      <p class="eyebrow">A SPECIAL DAY • A SPECIAL SOUL</p>
+      <h1>Happy Birthday,<br><span class="script-name">Ammadu</span> ❤️</h1>
+
+      <p class="message">
+        If I could give you one thing in this world,
+        it would be the ability to see yourself through my eyes.
+        Then you would understand just how incredibly special you are.
+      </p>
+
+      <button class="primary-btn next-screen" data-next="reasons">
+        Discover your little surprises →
+      </button>
+    </div>
+  </section>
+
+  <!-- 100 REASONS -->
+  <section id="reasons" class="screen">
+    <div class="section-content wide-content">
+      <p class="eyebrow">A HUNDRED LITTLE THINGS</p>
+      <h2>100 Reasons Why I Love You</h2>
+      <p class="message">And somehow, even 100 isn't enough.</p>
+
+      <div class="reason-card">
+        <span id="reasonNumber">01 / 100</span>
+        <p id="reasonText">Your beautiful smile.</p>
+      </div>
+
+      <div class="button-row">
+        <button class="secondary-btn" id="prevReason">← Previous</button>
+        <button class="primary-btn" id="nextReason">Next reason →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section id="gallery" class="screen">
+    <div class="section-content wide-content">
+      <p class="eyebrow">MY FAVOURITE MEMORIES</p>
+      <h2>Every picture tells a story</h2>
+      <p class="message">And every story with you is my favourite.</p>
+
+      <div class="gallery-grid">
+        <figure class="photo-card">
+          <img src="assets/photos/photo1.jpg" alt="A beautiful memory">
+          <figcaption>My favourite smile ❤️</figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="assets/photos/photo2.jpg" alt="A precious memory">
+          <figcaption>A moment to remember ✨</figcaption>
+        </figure>
+
+        <figure class="photo-card">
+          <img src="assets/photos/photo3.jpg" alt="A special memory">
+          <figcaption>My favourite person 🌙</figcaption>
+        </figure>
+      </div>
+
+      <button class="primary-btn next-screen" data-next="letter">
+        One more thing for you →
+      </button>
+    </div>
+  </section>
+
+  <!-- LOVE LETTER -->
+  <section id="letter" class="screen">
+    <div class="section-content letter-content">
+      <p class="eyebrow">FROM MY HEART TO YOURS</p>
+      <h2>A letter for you</h2>
+
+      <div class="letter-paper">
+        <p id="typedLetter"></p>
+      </div>
+
+      <button class="primary-btn next-screen" data-next="question">
+        Continue, Ammadu ❤️
+      </button>
+    </div>
+  </section>
+
+  <!-- PLAYFUL QUESTION -->
+  <section id="question" class="screen">
+    <div class="section-content">
+      <p class="eyebrow">ONE LITTLE QUESTION</p>
+      <h2>Will you keep making memories with me?</h2>
+
+      <div class="answer-buttons">
+        <button class="yes-btn" id="yesButton">YES! ❤️</button>
+        <button class="no-btn" id="noButton">NO 🙈</button>
+      </div>
+
+      <p id="answerMessage"></p>
+    </div>
+  </section>
+
+  <!-- FINAL REVEAL -->
+  <section id="finale" class="screen">
+    <div class="heart-glow">❤️</div>
+
+    <div class="section-content">
+      <p class="eyebrow">MY FAVOURITE PERSON. MY FAVOURITE UNIVERSE.</p>
+
+      <h1 class="final-title">
+        I LOVE YOU TOO,<br>
+        <span>AMMADU!</span>
+      </h1>
+
+      <p class="message">
+        No matter how many stars fill the sky,
+        you will always be my brightest one.
+      </p>
+
+      <p class="signature">Forever yours ❤️</p>
+
+      <button class="secondary-btn" id="replayButton">
+        ↻ Relive our little universe
+      </button>
+    </div>
+  </section>
+
+  <script src="js/config.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/reasons.js"></script>
+  <script src="js/gallery.js"></script>
+  <script src="js/letter.js"></script>
+  <script src="js/interactions.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
