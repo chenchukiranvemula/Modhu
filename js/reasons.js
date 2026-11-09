@@ -1,110 +1,51 @@
 
-/* =====================================
-   OUR LITTLE UNIVERSE
-   100 Reasons Engine
-===================================== */
+let discoveredReasons = new Set();
 
-let currentReasonIndex = 0;
+function initializeReasons() {
+  const container = document.getElementById("reasonBubbles");
+  const popup = document.getElementById("reasonPopup");
+  const popupText = document.getElementById("popupReasonText");
+  const closeButton = document.getElementById("closeReasonPopup");
+  const progress = document.getElementById("bubbleProgress");
 
-/* Display a reason */
+  if (!container || !popup || !popupText) return;
 
-function displayReason() {
+  container.innerHTML = "";
+  discoveredReasons.clear();
 
-  const numberElement = document.getElementById("reasonNumber");
-  const textElement = document.getElementById("reasonText");
+  CONFIG.reasons.forEach((reason, index) => {
+    const bubble = document.createElement("button");
 
-  if (!numberElement || !textElement) return;
+    bubble.className = "reason-bubble";
+    bubble.type = "button";
+    bubble.textContent = "💗";
+    bubble.setAttribute("aria-label", `Discover reason ${index + 1}`);
 
-  const totalReasons = CONFIG.reasons.length;
+    bubble.addEventListener("click", () => {
+      if (discoveredReasons.has(index)) return;
 
-  const reason = CONFIG.reasons[currentReasonIndex];
+      discoveredReasons.add(index);
+      popupText.textContent = reason;
+      popup.classList.add("active");
 
-  numberElement.textContent =
-    `${String(currentReasonIndex + 1).padStart(2, "0")} / ${totalReasons}`;
+      bubble.classList.add("popped");
 
-  // Restart animation
-  textElement.style.animation = "none";
-  void textElement.offsetWidth;
-  textElement.style.animation = "reasonReveal 0.5s ease";
+      progress.textContent =
+        `${discoveredReasons.size} / ${CONFIG.reasons.length} bubbles discovered`;
+    });
 
-  textElement.textContent = reason;
+    container.appendChild(bubble);
+  });
 
-}
-
-/* Next reason */
-
-function nextReason() {
-
-  if (currentReasonIndex < CONFIG.reasons.length - 1) {
-
-    currentReasonIndex++;
-
-    displayReason();
-
-  } else {
-
-    showReasonsComplete();
-
+  function closePopup() {
+    popup.classList.remove("active");
   }
 
+  closeButton?.addEventListener("click", closePopup);
+
+  popup.addEventListener("click", event => {
+    if (event.target === popup) closePopup();
+  });
 }
 
-/* Previous reason */
-
-function previousReason() {
-
-  if (currentReasonIndex > 0) {
-
-    currentReasonIndex--;
-
-    displayReason();
-
-  }
-
-}
-
-/* End message */
-
-function showReasonsComplete() {
-
-  const numberElement = document.getElementById("reasonNumber");
-  const textElement = document.getElementById("reasonText");
-
-  if (!numberElement || !textElement) return;
-
-  numberElement.textContent = "100 / 100 ❤️";
-
-  textElement.textContent =
-    "100 reasons, one heart, and an infinite number of reasons still waiting to be discovered. I LOVE YOU, AMMADU!";
-
-}
-
-/* Reset reasons */
-
-function resetReasons() {
-
-  currentReasonIndex = 0;
-
-  displayReason();
-
-}
-
-/* Connect buttons */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const nextButton = document.getElementById("nextReason");
-  const previousButton = document.getElementById("prevReason");
-
-  if (nextButton) {
-    nextButton.addEventListener("click", nextReason);
-  }
-
-  if (previousButton) {
-    previousButton.addEventListener("click", previousReason);
-  }
-
-  displayReason();
-
-});
-    
+document.addEventListener("DOMContentLoaded", initializeReasons);
