@@ -1,0 +1,278 @@
+
+/* =====================================
+   OUR LITTLE UNIVERSE
+   Cinematic Animations
+===================================== */
+
+/* Screen entrance */
+
+.screen.active {
+  animation: screenReveal 1s ease both;
+}
+
+@keyframes screenReveal {
+  from {
+    opacity: 0;
+    transform: scale(1.035);
+    filter: blur(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+/* Moon glow */
+
+.moon {
+  animation: moonGlow 5s ease-in-out infinite alternate;
+}
+
+@keyframes moonGlow {
+  from {
+    box-shadow:
+      0 0 25px #fff0d566,
+      0 0 60px #fff0d522;
+  }
+
+  to {
+    box-shadow:
+      0 0 45px #fff0d5bb,
+      0 0 120px #fff0d566;
+  }
+}
+
+/* Ocean movement */
+
+.ocean {
+  animation: oceanMove 6s ease-in-out infinite alternate;
+}
+
+@keyframes oceanMove {
+  from {
+    transform: scaleX(1);
+  }
+
+  to {
+    transform: scaleX(1.08);
+  }
+}
+
+/* Star particles */
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 8px white;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.2;
+    transform: scale(0.7);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* Floating hearts */
+
+.floating-heart {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  z-index: 10;
+  color: #ff8caf;
+  animation: floatHeart 6s linear forwards;
+}
+
+@keyframes floatHeart {
+  0% {
+    opacity: 0;
+    transform: translateY(0) rotate(0deg) scale(0.7);
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-110vh) rotate(360deg) scale(1.5);
+  }
+}
+
+/* Candle flame */
+
+.flame {
+  transform-origin: bottom center;
+  animation: candleFlicker 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes candleFlicker {
+  from {
+    transform: rotate(-45deg) scale(0.9);
+    opacity: 0.8;
+  }
+
+  to {
+    transform: rotate(-40deg) scale(1.12);
+    opacity: 1;
+  }
+}
+
+/* Cake celebration */
+
+.cake-container.celebrate {
+  animation: cakeCelebrate 0.7s ease;
+}
+
+@keyframes cakeCelebrate {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scale(1.12) rotate(-3deg);
+  }
+
+  70% {
+    transform: scale(1.08) rotate(3deg);
+  }
+}
+
+/* Button shine */
+
+.primary-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.primary-btn::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 50%;
+  height: 200%;
+  transform: rotate(25deg);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ffffff99,
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.primary-btn:hover::before {
+  left: 150%;
+}
+
+/* Gallery image entrance */
+
+.photo-card {
+  animation: photoAppear 0.8s ease both;
+}
+
+.photo-card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.photo-card:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes photoAppear {
+  from {
+    opacity: 0;
+    transform: translateY(35px) scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Letter appearance */
+
+.letter-paper {
+  animation: letterReveal 1s ease both;
+}
+
+@keyframes letterReveal {
+  from {
+    opacity: 0;
+    transform: translateY(25px) rotate(-2deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+/* Final heart */
+
+.heart-glow {
+  animation: heartBeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartBeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+
+  15% {
+    transform: scale(1.15);
+  }
+
+  30% {
+    transform: scale(1);
+  }
+
+  45% {
+    transform: scale(1.1);
+  }
+}
+
+/* Final title */
+
+.final-title {
+  animation: finalTitleReveal 1.5s ease both;
+}
+
+@keyframes finalTitleReveal {
+  from {
+    opacity: 0;
+    letter-spacing: 10px;
+    filter: blur(10px);
+  }
+
+  to {
+    opacity: 1;
+    letter-spacing: normal;
+    filter: blur(0);
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+}
