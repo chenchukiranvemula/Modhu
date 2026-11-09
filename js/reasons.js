@@ -1,4 +1,3 @@
-
 let discoveredReasons = new Set();
 
 function initializeReasons() {
