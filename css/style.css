@@ -1,0 +1,488 @@
+
+/* =====================================
+   OUR LITTLE UNIVERSE
+   Main Stylesheet
+===================================== */
+
+:root {
+  --background: #080817;
+  --surface: #15152b;
+  --pink: #ff75a8;
+  --rose: #ffb3cf;
+  --purple: #a58bff;
+  --white: #fff8fc;
+  --muted: #c6bfd2;
+  --gold: #ffe0a3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+  background: var(--background);
+  color: var(--white);
+  font-family: 'Poppins', sans-serif;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.screen {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  min-height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 35px 20px;
+  overflow-y: auto;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at 50% 100%, #282047 0%, transparent 55%),
+    linear-gradient(160deg, #080817, #111027 60%, #17132b);
+  opacity: 0;
+  z-index: 2;
+}
+
+.screen.active {
+  display: flex;
+  opacity: 1;
+}
+
+.section-content {
+  width: 100%;
+  max-width: 760px;
+  margin: auto;
+  position: relative;
+  z-index: 3;
+}
+
+.wide-content {
+  max-width: 950px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 4px;
+  font-weight: 500;
+  margin-bottom: 22px;
+}
+
+h1,
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  line-height: 1.12;
+}
+
+h1 {
+  font-size: clamp(42px, 8vw, 76px);
+}
+
+h2 {
+  font-size: clamp(34px, 6vw, 54px);
+  margin-bottom: 20px;
+}
+
+.message {
+  max-width: 620px;
+  margin: 22px auto 30px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 2;
+  font-weight: 300;
+}
+
+.script-name {
+  color: var(--pink);
+  font-style: italic;
+}
+
+/* BUTTONS */
+
+.primary-btn,
+.secondary-btn {
+  padding: 14px 27px;
+  border-radius: 50px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.primary-btn {
+  color: #241126;
+  background: linear-gradient(120deg, #ffb3cf, #ff75a8);
+  box-shadow: 0 0 25px #ff75a84d;
+}
+
+.primary-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 35px #ff75a899;
+}
+
+.secondary-btn {
+  color: var(--white);
+  border: 1px solid #ffffff45;
+  background: #ffffff0d;
+}
+
+.secondary-btn:hover {
+  background: #ffffff20;
+  transform: translateY(-3px);
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+/* INTRO */
+
+#intro {
+  background:
+    linear-gradient(to bottom, #080817 0%, #10172e 65%, #172d46 100%);
+}
+
+.intro-content {
+  position: relative;
+  z-index: 4;
+  margin-top: -80px;
+}
+
+.intro-content h1 {
+  font-size: clamp(39px, 7vw, 70px);
+}
+
+.intro-subtitle {
+  color: #d5c9e4;
+  margin: 25px auto 35px;
+  font-size: 13px;
+  line-height: 2;
+}
+
+.moon {
+  position: absolute;
+  top: 10%;
+  right: 15%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #fff0d5;
+  box-shadow:
+    0 0 30px #fff0d599,
+    0 0 100px #fff0d544;
+}
+
+.ocean {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 24%;
+  background:
+    linear-gradient(to bottom, #182d49, #080817);
+  border-radius: 50% 50% 0 0 / 12% 12% 0 0;
+  opacity: 0.9;
+}
+
+/* CAKE */
+
+.cake-container {
+  width: 220px;
+  height: 200px;
+  margin: 45px auto 15px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cake-container:hover {
+  transform: scale(1.05);
+}
+
+.cake-bottom,
+.cake-middle,
+.cake-top {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 12px 12px 8px 8px;
+  background: linear-gradient(120deg, #ff8caf, #d94d85);
+  box-shadow: 0 10px 25px #0005;
+}
+
+.cake-bottom {
+  width: 190px;
+  height: 55px;
+  bottom: 35px;
+}
+
+.cake-middle {
+  width: 155px;
+  height: 48px;
+  bottom: 88px;
+  background: linear-gradient(120deg, #ffb2ca, #f47ba7);
+}
+
+.cake-top {
+  width: 120px;
+  height: 40px;
+  bottom: 132px;
+  background: linear-gradient(120deg, #ffe2e9, #ffb3cf);
+}
+
+.cake-plate {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 14px;
+  border-radius: 50%;
+  background: #e4d4f4;
+  box-shadow: 0 0 20px #d6b7ff55;
+}
+
+.cake-candle {
+  position: absolute;
+  width: 7px;
+  height: 35px;
+  bottom: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: repeating-linear-gradient(
+    45deg,
+    white,
+    white 5px,
+    #ff75a8 5px,
+    #ff75a8 9px
+  );
+  z-index: 2;
+}
+
+.flame {
+  position: absolute;
+  width: 15px;
+  height: 22px;
+  top: -23px;
+  left: -4px;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  background: linear-gradient(#fff5a5, #ff9d42);
+  box-shadow: 0 0 20px #ffb84d;
+}
+
+.tap-hint {
+  color: var(--gold);
+  font-size: 12px;
+  margin-top: 25px;
+}
+
+/* REASONS */
+
+.reason-card {
+  max-width: 550px;
+  min-height: 190px;
+  margin: 35px auto 20px;
+  padding: 35px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 25px;
+  border: 1px solid #ffb3cf44;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #ffffff13, #ffffff05);
+  box-shadow: 0 15px 50px #0003;
+  backdrop-filter: blur(12px);
+}
+
+.reason-card span {
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 3px;
+}
+
+.reason-card p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(25px, 5vw, 38px);
+  color: #ffe0ec;
+}
+
+/* GALLERY */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 35px 0;
+}
+
+.photo-card {
+  overflow: hidden;
+  padding: 10px;
+  border-radius: 18px;
+  background: #ffffff12;
+  border: 1px solid #ffffff20;
+  transform: rotate(-1deg);
+  transition: 0.3s ease;
+}
+
+.photo-card:nth-child(2) {
+  transform: rotate(1deg) translateY(-10px);
+}
+
+.photo-card:hover {
+  transform: translateY(-8px) rotate(0);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.photo-card figcaption {
+  padding: 13px 5px 5px;
+  color: var(--rose);
+  font-size: 11px;
+}
+
+/* LETTER */
+
+.letter-content {
+  max-width: 700px;
+}
+
+.letter-paper {
+  padding: 35px;
+  margin: 30px auto;
+  min-height: 220px;
+  border-radius: 8px;
+  text-align: left;
+  color: #51384a;
+  background: linear-gradient(135deg, #fff1e8, #ffe0eb);
+  box-shadow: 0 15px 50px #0005;
+}
+
+#typedLetter {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+
+/* QUESTION */
+
+.answer-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 45px auto;
+  min-height: 100px;
+}
+
+.yes-btn,
+.no-btn {
+  border-radius: 50px;
+  padding: 15px 35px;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.yes-btn {
+  color: #32122a;
+  background: linear-gradient(120deg, #ffb3cf, #ff75a8);
+  box-shadow: 0 0 25px #ff75a866;
+}
+
+.no-btn {
+  color: white;
+  background: #ffffff17;
+  border: 1px solid #ffffff44;
+}
+
+#answerMessage {
+  color: var(--gold);
+  font-size: 14px;
+}
+
+/* FINALE */
+
+#finale {
+  background:
+    radial-gradient(ellipse at center, #45204c 0%, #17112d 45%, #080817 100%);
+}
+
+.heart-glow {
+  font-size: 95px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 25px #ff75a8);
+}
+
+.final-title {
+  font-size: clamp(39px, 8vw, 75px);
+}
+
+.final-title span {
+  color: var(--pink);
+  text-shadow: 0 0 30px #ff75a866;
+}
+
+.signature {
+  margin: 25px 0;
+  color: var(--rose);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+  font-style: italic;
+}
+
+/* BACKGROUND ELEMENTS */
+
+#stars {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.ambient-glow {
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #a58bff0b;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+#cakeMessage {
+  margin-top: 15px;
+  color: var(--gold);
+}
