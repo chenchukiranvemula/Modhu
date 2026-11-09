@@ -1,0 +1,233 @@
+
+/* =====================================
+   OUR LITTLE UNIVERSE
+   Responsive Design
+===================================== */
+
+/* Tablets */
+
+@media (max-width: 900px) {
+  .section-content {
+    max-width: 650px;
+  }
+
+  .gallery-grid {
+    gap: 12px;
+  }
+
+  .photo-card img {
+    height: 190px;
+  }
+
+  .moon {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+/* Mobile phones */
+
+@media (max-width: 600px) {
+
+  .screen {
+    padding: 25px 18px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    margin-bottom: 17px;
+  }
+
+  h1 {
+    font-size: clamp(38px, 11vw, 55px);
+  }
+
+  h2 {
+    font-size: clamp(31px, 9vw, 43px);
+  }
+
+  .message {
+    font-size: 12px;
+    line-height: 1.9;
+    margin: 18px auto 25px;
+  }
+
+  .intro-content {
+    margin-top: -45px;
+  }
+
+  .intro-content h1 {
+    font-size: clamp(37px, 10vw, 53px);
+  }
+
+  .intro-subtitle {
+    font-size: 12px;
+    padding: 0 8px;
+  }
+
+  .moon {
+    top: 10%;
+    right: 10%;
+    width: 65px;
+    height: 65px;
+  }
+
+  .ocean {
+    height: 18%;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    padding: 13px 21px;
+    font-size: 12px;
+  }
+
+  /* Cake */
+
+  .cake-container {
+    transform: scale(0.85);
+    margin: 20px auto 5px;
+  }
+
+  .cake-container:hover {
+    transform: scale(0.9);
+  }
+
+  /* Reasons */
+
+  .reason-card {
+    min-height: 170px;
+    padding: 25px 15px;
+    margin: 25px auto 15px;
+  }
+
+  .reason-card p {
+    font-size: 27px;
+  }
+
+  .button-row {
+    gap: 10px;
+  }
+
+  /* Gallery */
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin: 25px 0;
+  }
+
+  .photo-card {
+    padding: 7px;
+  }
+
+  .photo-card img {
+    height: 175px;
+  }
+
+  .photo-card figcaption {
+    font-size: 10px;
+  }
+
+  .photo-card:nth-child(2) {
+    transform: none;
+  }
+
+  .photo-card:nth-child(3) {
+    grid-column: 1 / -1;
+    width: 75%;
+    justify-self: center;
+  }
+
+  .photo-card:nth-child(3) img {
+    height: 220px;
+  }
+
+  /* Letter */
+
+  .letter-paper {
+    padding: 23px 19px;
+    margin: 22px auto;
+  }
+
+  #typedLetter {
+    font-size: 19px;
+    line-height: 1.8;
+  }
+
+  /* Question */
+
+  .answer-buttons {
+    gap: 12px;
+    margin: 30px auto;
+  }
+
+  .yes-btn,
+  .no-btn {
+    padding: 13px 26px;
+    font-size: 13px;
+  }
+
+  /* Finale */
+
+  .heart-glow {
+    font-size: 75px;
+  }
+
+  .final-title {
+    font-size: clamp(36px, 10vw, 52px);
+  }
+
+  .signature {
+    font-size: 22px;
+  }
+}
+
+/* Very small phones */
+
+@media (max-width: 360px) {
+  .screen {
+    padding: 20px 13px;
+  }
+
+  .intro-content h1 {
+    font-size: 36px;
+  }
+
+  .gallery-grid {
+    gap: 8px;
+  }
+
+  .photo-card img {
+    height: 145px;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+}
+
+/* Landscape phones */
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .screen {
+    align-items: flex-start;
+  }
+
+  .section-content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .moon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .cake-container {
+    transform: scale(0.65);
+    margin: 0 auto;
+  }
+                     }
+  
