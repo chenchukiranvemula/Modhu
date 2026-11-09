@@ -1,152 +1,55 @@
 
-/* =====================================
-   OUR LITTLE UNIVERSE
-   Photo Gallery Engine
-===================================== */
+document.addEventListener("DOMContentLoaded", () => {
+  const images = document.querySelectorAll(".gallery-item img");
 
-let galleryImages = [];
-let currentPhotoIndex = 0;
+  images.forEach((img, index) => {
+    const photoNumber = index + 1;
 
-/* Collect gallery images */
+    img.src = `/Modhu/assets/photos/photo${photoNumber}.jpg`;
+    img.loading = "lazy";
+    img.alt = `Our special memory ${photoNumber}`;
 
-function initializeGallery() {
-
-  const images = document.querySelectorAll(".photo-card img");
-
-  galleryImages = Array.from(images).map((image, index) => ({
-    src: image.src,
-    alt: image.alt,
-    caption: CONFIG.galleryCaptions[index] || "A beautiful memory ❤️"
-  }));
-
-  images.forEach((image, index) => {
-
-    image.style.cursor = "pointer";
-
-    image.addEventListener("click", () => {
-      openPhoto(index);
+    img.addEventListener("error", () => {
+      console.error(`Could not load photo${photoNumber}.jpg`);
+      img.alt = `Photo ${photoNumber} could not be loaded`;
     });
 
+    img.addEventListener("click", () => {
+      openPhotoViewer(img.src, img.alt);
+    });
   });
 
-}
-
-/* Create image viewer */
-
-function createGalleryViewer() {
-
-  if (document.getElementById("galleryViewer")) return;
-
+  // Create photo viewer
   const viewer = document.createElement("div");
-
-  viewer.id = "galleryViewer";
+  viewer.id = "photoViewer";
 
   viewer.innerHTML = `
-    <button class="gallery-close" aria-label="Close gallery">&times;</button>
-
-    <button class="gallery-arrow gallery-prev" aria-label="Previous photo">
-      &#10094;
-    </button>
-
-    <div class="gallery-preview">
-      <img id="previewImage" src="" alt="Memory preview">
-      <p id="previewCaption"></p>
-      <span id="previewCounter"></span>
-    </div>
-
-    <button class="gallery-arrow gallery-next" aria-label="Next photo">
-      &#10095;
-    </button>
+    <button id="closePhotoViewer" aria-label="Close">×</button>
+    <img id="viewerImage" src="" alt="">
+    <p id="viewerCaption"></p>
   `;
 
   document.body.appendChild(viewer);
 
-  viewer.querySelector(".gallery-close").addEventListener("click", closePhoto);
+  const closeButton = document.getElementById("closePhotoViewer");
 
-  viewer.querySelector(".gallery-prev").addEventListener("click", () => {
-    changePhoto(-1);
-  });
-
-  viewer.querySelector(".gallery-next").addEventListener("click", () => {
-    changePhoto(1);
-  });
-
-  viewer.addEventListener("click", event => {
-    if (event.target === viewer) {
-      closePhoto();
-    }
-  });
-
-  document.addEventListener("keydown", event => {
-
-    if (!viewer.classList.contains("visible")) return;
-
-    if (event.key === "Escape") closePhoto();
-    if (event.key === "ArrowLeft") changePhoto(-1);
-    if (event.key === "ArrowRight") changePhoto(1);
-
-  });
-
-}
-
-/* Open photo */
-
-function openPhoto(index) {
-
-  if (!galleryImages.length) return;
-
-  createGalleryViewer();
-
-  currentPhotoIndex = index;
-
-  updatePhotoViewer();
-
-  document.getElementById("galleryViewer").classList.add("visible");
-
-}
-
-/* Update preview */
-
-function updatePhotoViewer() {
-
-  const photo = galleryImages[currentPhotoIndex];
-
-  document.getElementById("previewImage").src = photo.src;
-
-  document.getElementById("previewImage").alt = photo.alt;
-
-  document.getElementById("previewCaption").textContent = photo.caption;
-
-  document.getElementById("previewCounter").textContent =
-    `${currentPhotoIndex + 1} / ${galleryImages.length}`;
-
-}
-
-/* Change image */
-
-function changePhoto(direction) {
-
-  currentPhotoIndex =
-    (currentPhotoIndex + direction + galleryImages.length) %
-    galleryImages.length;
-
-  updatePhotoViewer();
-
-}
-
-/* Close viewer */
-
-function closePhoto() {
-
-  const viewer = document.getElementById("galleryViewer");
-
-  if (viewer) {
+  function closeViewer() {
     viewer.classList.remove("visible");
   }
 
-}
+  closeButton.addEventListener("click", closeViewer);
 
-/* Initialize after page loads */
+  viewer.addEventListener("click", event => {
+    if (event.target === viewer) closeViewer();
+  });
 
-document.addEventListener("DOMContentLoaded", initializeGallery);
-                                                            
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeViewer();
+  });
+
+  window.openPhotoViewer = function(src, caption) {
+    document.getElementById("viewerImage").src = src;
+    document.getElementById("viewerCaption").textContent = caption;
+    viewer.classList.add("visible");
+  };
+});
